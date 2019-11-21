@@ -1,10 +1,15 @@
 package com.timetable.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +28,14 @@ public class Teacher {
 	private String phoneNumber;
 	@Column(name="email")
 	private String email;
+	
+	//To be check - i don't think it's correct in this case
+	
+	@ManyToMany
+	@JoinTable(name="teacher_subject",
+	joinColumns=@JoinColumn(name="teacher_id"),
+	inverseJoinColumns=@JoinColumn(name="subject_id"))
+	private List<Subject> subjects;
 	
 	public Teacher() {
 

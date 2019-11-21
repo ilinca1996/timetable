@@ -1,21 +1,37 @@
 package com.timetable.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="teacher_subject")
 public class Teacher_Subject {
 
-	@OneToOne
+	@EmbeddedId
+	Teacher_Subject_Key id;
+	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
+	@MapsId("teacher_id")
 	@JoinColumn(name="teacher_id")
 	private Teacher teacher;
-	@OneToOne
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
+	@MapsId("subject_id")
 	@JoinColumn(name="subject_id")
 	private Subject subject;
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
+	@JoinColumn(name="period_id")
 	private Period period;
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
+	@JoinColumn(name="group_id")
 	private Group group;
 	
 	public Teacher_Subject() {

@@ -1,12 +1,15 @@
 package com.timetable.model;
 
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +26,9 @@ public class Period {
 	private Calendar startTime;
 	@Column(name="end_time")
 	private Calendar endTime;
+	@OneToMany(mappedBy="period", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
+	private List<Teacher_Subject> subjects; 
 	
 	public Period(String day, Calendar startTime, Calendar endTime) {
 		super();
@@ -33,6 +39,14 @@ public class Period {
 
 	public Period() {
 
+	}
+
+	public List<Teacher_Subject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(List<Teacher_Subject> subjects) {
+		this.subjects = subjects;
 	}
 
 	public String getDay() {
