@@ -21,7 +21,7 @@ public class Group {
 	private Integer groupId;
 	@Column(name = "group_number")
 	private Integer groupNumber;
-	@Column(name = "group_number")
+	@Column(name = "year")
 	private Integer year;
 	@OneToMany(mappedBy = "group")
 	private List<Student> students;

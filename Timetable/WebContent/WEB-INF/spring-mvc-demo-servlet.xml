@@ -43,16 +43,17 @@
 			value="jdbc:postgresql://localhost:5432/timetable_db" />
 		<property name="user" value="postgres" />
 		<property name="password" value="postgres" />
-		<property name="minPollSize" value="5" />
+		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="20" />
 		<property name="maxIdleTime" value="30000" />
+		<property name="numHelperThreads" value="10"></property>
 	</bean>
 
 	<!-- Define the SessionFactory -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource" />
-		<property name="packageToScan" value="com.timetable.model" />
+		<property name="packagesToScan" value="com.timetable.model" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
@@ -69,6 +70,10 @@
 
 	<tx:annotation-driven
 		transaction-manager="myTransactionManager" />
+
+	<!-- Add support for reading web resources -->
+	<mvc:resources location="/resources/"
+		mapping="/resources/**"></mvc:resources>
 
 </beans>
 
