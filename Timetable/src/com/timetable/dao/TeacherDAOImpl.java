@@ -20,10 +20,30 @@ public class TeacherDAOImpl implements TeacherDAO{
 	public List<Teacher> getTeachers() {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
-		Query<Teacher> query = currentSession.createQuery("from Teacher", Teacher.class);
+		Query<Teacher> query = currentSession.createQuery("from Teacher order by lastName", Teacher.class);
 		List<Teacher> teachers = query.getResultList();
 		
 		return teachers;
+	}
+
+	@Override
+	public void saveTeacher(Teacher teacher) {
+
+		//Get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//Save the teacher
+		currentSession.saveOrUpdate(teacher);
+		
+	}
+
+	@Override
+	public Teacher getTeacher(Integer teacherId) {
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		Teacher teacher = currentSession.get(Teacher.class, teacherId);
+		
+		return teacher;
 	}
 
 }

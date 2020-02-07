@@ -22,4 +22,16 @@ public class SubjectServiceImpl implements SubjectService {
 		return subjectDAO.getSubjects();
 	}
 
+	@Override
+	@Transactional
+	public void saveSubject(Subject subject) {		
+		subjectDAO.saveSubject(subject);	
+	}
+
+	@Override
+	@Transactional
+	public Subject getSubject(int subjectId) {
+		return subjectDAO.getSubject(subjectId);
+	}
+
 }

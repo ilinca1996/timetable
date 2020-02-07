@@ -77,6 +77,18 @@ public class Teacher {
 		this.email = email;
 	}
 
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
+	}
+
+	public void setTeacherId(Integer teacherId) {
+		this.teacherId = teacherId;
+	}
+
 	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
 		super();
 		this.firstName = firstName;

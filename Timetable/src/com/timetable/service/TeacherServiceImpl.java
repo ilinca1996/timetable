@@ -22,4 +22,16 @@ public class TeacherServiceImpl implements TeacherService {
 		return teacherDAO.getTeachers();
 	}
 
+	@Override
+	@Transactional
+	public void saveTeacher(Teacher teacher) {
+		 teacherDAO.saveTeacher(teacher);
+	}
+
+	@Override
+	@Transactional
+	public Teacher getTeacher(Integer teacherId) {
+		return teacherDAO.getTeacher(teacherId);
+	}
+
 }

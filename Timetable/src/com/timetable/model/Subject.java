@@ -47,6 +47,18 @@ public class Subject {
 		return subjectId;
 	}
 
+	public List<Teacher> getTeachers() {
+		return teachers;
+	}
+
+	public void setTeachers(List<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+
+	public void setSubjectId(Integer subjectId) {
+		this.subjectId = subjectId;
+	}
+
 	public Subject(String subjectName) {
 		super();
 		this.subjectName = subjectName;
