@@ -34,6 +34,7 @@ public class TeacherController {
 	public String showFormForAdd(Model theModel) {
 		
 		Teacher teacher = new Teacher();
+		teacher.setSubjects(teacherService.getSubjects());
 		theModel.addAttribute("teacher", teacher);
 		
 		return "teacher-form";

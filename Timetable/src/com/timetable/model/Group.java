@@ -74,5 +74,9 @@ public class Group {
 		this.groupNumber = groupNumber;
 		this.year = year;
 	}
+	
+	public Group(Integer groupId) {
+		this.groupId = groupId;
+	}
 
 }

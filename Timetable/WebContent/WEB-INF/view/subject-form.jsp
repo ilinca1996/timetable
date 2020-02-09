@@ -19,11 +19,12 @@
 	<div class="topnav">
 		<a href="${pageContext.request.contextPath}/teacher/list">Teachers</a>
 		<a href="${pageContext.request.contextPath}/subject/list">Subjects</a>
-		<a href="#">Students</a>
+		<a href="${pageContext.request.contextPath}/student/list">Students</a>
+		<a href="${pageContext.request.contextPath}/group/list">Groups</a>
 	</div>
 
 	<div id="container">
-		<h3>Save Subject</h3>
+		<h2>Save Subject</h2>
 
 		<form:form action="saveSubject" modelAttribute="subject" method="POST">
 

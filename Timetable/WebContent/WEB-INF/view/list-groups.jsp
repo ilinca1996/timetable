@@ -3,19 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Timetable Application</title>
+<title>TimeTable Application</title>
 
 <!-- Reference for CSS -->
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 </head>
-
 <body>
+
 	<div class="header">
 		<h1>Timetable Application</h1>
 	</div>
-	
+
 	<div class="topnav">
 		<a href="${pageContext.request.contextPath}/teacher/list">Teachers</a>
 		<a href="${pageContext.request.contextPath}/subject/list">Subjects</a>
@@ -23,35 +23,36 @@
 		<a href="${pageContext.request.contextPath}/group/list">Groups</a>
 	</div>
 	
-	<div class="content">
+	<div class=""content>
 		<div class="column side">
 			<!-- To be defined -->
 			<h2></h2>
 		</div>
 		
-		<div class="column middle">		
-			<h2>Subjects</h2>
+		<div class="column middle">
 			
-			<!-- Add HTML table -->
+			<h2>Groups</h2>
+
+			<!-- Adding the html table that will contain the teachers list -->
 			<table id="list" class="pure-table pure-table-horizontal">
 				<tr>
-					<th>Subject Name</th>
-					<th></th>
+					<th>Year</th>
+					<th>Group Number</th>
 				</tr>
 
-				<!-- Loop over and print the Subjects -->
-				<c:forEach var="tempSubject" items="${subjects}">
-				
+				<!-- Iterating over the list of groups -->
+				<c:forEach var="tempGroup" items="${groups}">
+
 					<!-- Construct an update link with the subject id -->
-					<c:url var="updateLink" value="/subject/showFormForUpdateSubject">
-						<c:param  name="subjectId" value="${tempSubject.subjectId}" />
+					<c:url var="groupStudents" value="/student/showFormForGroupStudents">
+						<c:param name="groupId" value="${tempGroup.groupId}" />
 					</c:url>
-			
+
 					<tr>
-						<td>${tempSubject.subjectName}</td>
+						<td>${tempGroup.year}</td>
+						<td>${tempGroup.groupNumber}</td>
 						<td>
-							<!-- Display the update link -->
-							<a href="${updateLink}">Update</a>
+							<!-- Display the group students --> <a href="${groupStudents}">Show students</a>
 						</td>
 					</tr>
 				</c:forEach>
@@ -60,18 +61,16 @@
 			
 			<!-- Adding the Add Subject button -->
 			<!-- class = "add-button" is for CSS styles -->
-			<input type="button" value="Add Subject"
-				onclick="window.location.href='showFormForAddSubject'; return false;"
+			<input type="button" value="Add Group"
+				onclick="window.location.href='showFormForAddGroup'; return false;"
 				class="add-button" />
 			
 		</div>
 		
 		<div class="column side">
-		<!-- To be defined -->
 			<h2>User Info</h2>
-		</div>	
+		</div>
 	</div>
-
+	
 </body>
-
 </html>

@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +23,7 @@
 		<a href="${pageContext.request.contextPath}/student/list">Students</a>
 		<a href="${pageContext.request.contextPath}/group/list">Groups</a>
 	</div>
-
+	
 	<div class="content">
 		<div class="column side">
 			<!-- To be defined -->
@@ -31,39 +31,38 @@
 		</div>
 		
 		<div class="column middle">
-			<h2>Add a new teacher</h2>
 			
-			<form:form action="saveTeacher" modelAttribute="teacher" method="POST">
+			<h2>Save Student</h2>
 
-			<!-- Associate the data with the id - truck the teacher so that the backend knows which teacher is it about -->
-			<form:hidden path="teacherId" />
+		<form:form action="saveStudent" modelAttribute="student" method="POST">
+
+			<!-- Associate the data with the id - truck the subject so that the backend knows which Subject is it about -->
+			<form:hidden path="studentId" />
 
 			<table>
 				<tbody>
 					<tr>
-						<td><label>Teacher first name :</label></td>
+						<td><label>First name :</label></td>
 						<td><form:input path="firstName" /></td>
 					</tr>
 					<tr>
-						<td><label>Teacher last name :</label></td>
+						<td><label>Last name :</label></td>
 						<td><form:input path="lastName" /></td>
 					</tr>
 					<tr>
-						<td><label>Teacher phone number :</label></td>
+						<td><label>Phone number :</label></td>
 						<td><form:input path="phoneNumber" /></td>
 					</tr>
 					<tr>
-						<td><label>Teacher email :</label></td>
+						<td><label>Email :</label></td>
 						<td><form:input path="email" /></td>
 					</tr>
 					<tr>
-						<td><label>Courses taught :</label></td>
-						<td><select id="subjects" name="subjects" multiple>
-								<!-- Loop over and print the Subjects -->
-								<c:forEach var="tempSubject" items="${teacher.subjects}">
-									<option value="${tempSubject.subjectId}">${tempSubject.subjectName}</option>
-								</c:forEach>
-						</select></td>
+						<td><label>Group :</label></td>
+						<td><form:select path="group">
+								<form:option value="NONE" label="Select group" />
+								<form:options items="${groups}"/>
+						</form:select></td>
 					</tr>
 
 					<!-- Addind the save button -->
@@ -76,14 +75,14 @@
 			</table>
 
 		</form:form>
-		
+
 		<div style=""></div>
 
 		<p>
-			<a href="${pageContext.request.contextPath}/teacher/list">Back to
-				the list of teachers</a>
+			<a href="${pageContext.request.contextPath}/student/list">Back to
+				the list of students</a>
 		</p>
-			
+					
 		</div>
 		
 		<div class="column side">

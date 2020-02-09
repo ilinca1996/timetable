@@ -25,30 +25,38 @@
 	
 	<div class="content">
 		<div class="column side">
-			<!-- To be defined -->
+			<!-- To be define -->
 			<h2></h2>
 		</div>
 		
-		<div class="column middle">		
-			<h2>Subjects</h2>
+		<div class="column middle">
+			<h2>Students</h2>
 			
 			<!-- Add HTML table -->
 			<table id="list" class="pure-table pure-table-horizontal">
 				<tr>
-					<th>Subject Name</th>
-					<th></th>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Phone Number</th>
+					<th>Email</th>
+					<th>Group</th>
+					<th>Year of study</th>
 				</tr>
 
 				<!-- Loop over and print the Subjects -->
-				<c:forEach var="tempSubject" items="${subjects}">
+				<c:forEach var="tempStudent" items="${students}">
 				
 					<!-- Construct an update link with the subject id -->
-					<c:url var="updateLink" value="/subject/showFormForUpdateSubject">
-						<c:param  name="subjectId" value="${tempSubject.subjectId}" />
+					<c:url var="updateLink" value="/student/showFormForUpdateStudent">
+						<c:param  name="studentId" value="${tempStudent.studentId}" />
 					</c:url>
 			
 					<tr>
-						<td>${tempSubject.subjectName}</td>
+						<td>${tempStudent.firstName}</td>
+						<td>${tempStudent.lastName}</td>
+						<td>${tempStudent.phoneNumber}</td>
+						<td>${tempStudent.email}</td>
+						<td>${tempStudent.group.groupNumber}</td>
 						<td>
 							<!-- Display the update link -->
 							<a href="${updateLink}">Update</a>
@@ -60,18 +68,15 @@
 			
 			<!-- Adding the Add Subject button -->
 			<!-- class = "add-button" is for CSS styles -->
-			<input type="button" value="Add Subject"
-				onclick="window.location.href='showFormForAddSubject'; return false;"
-				class="add-button" />
-			
+			<input type="button" value="Add Student"
+				onclick="window.location.href='showFormForAddStudent'; return false;"
+				class="add-button" />		
 		</div>
 		
 		<div class="column side">
-		<!-- To be defined -->
 			<h2>User Info</h2>
-		</div>	
+		</div>
 	</div>
 
 </body>
-
 </html>
