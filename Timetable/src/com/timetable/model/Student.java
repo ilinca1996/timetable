@@ -58,9 +58,11 @@ public class Student {
 	public Group getGroup() {
 		return group;
 	}
-	public void setGroup(Integer groupId) {
-		this.group = new Group(groupId);
+	
+	public void setGroup(Group group) {
+		this.group = group;
 	}
+	
 	public Integer getStudentId() {
 		return studentId;
 	}

@@ -57,7 +57,7 @@ public class StudentController {
 	public String showFormForUpdate(@RequestParam("studentId") int studentId, Model theModel) {
 
 		// Get the student from the service
-		Student student = studentService.getSubject(studentId);
+		Student student = studentService.getStudent(studentId);
 
 		// Set student as a model attribute to populate the form
 		theModel.addAttribute("student", student);

@@ -48,7 +48,7 @@ public class StudentServiceImpl implements StudentService{
 
 	@Override
 	@Transactional
-	public Student getSubject(int studentId) {
+	public Student getStudent(int studentId) {
 		return studentDAO.getStudentById(studentId);
 	}
 

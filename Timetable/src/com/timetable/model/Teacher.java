@@ -2,6 +2,7 @@ package com.timetable.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +32,7 @@ public class Teacher {
 	
 	//To be check - i don't think it's correct in this case
 	
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.ALL})
 	@JoinTable(name="teacher_subject",
 	joinColumns=@JoinColumn(name="teacher_id"),
 	inverseJoinColumns=@JoinColumn(name="subject_id"))
@@ -89,12 +90,15 @@ public class Teacher {
 		this.teacherId = teacherId;
 	}
 
-	public Teacher(String firstName, String lastName, String phoneNumber, String email) {
+	public Teacher(Integer teacherId, String firstName, String lastName, String phoneNumber, String email,
+			List<Subject> subjects) {
 		super();
+		this.teacherId = teacherId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
+		this.subjects = subjects;
 	}
 	
 }

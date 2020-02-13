@@ -56,15 +56,15 @@
 						<td><label>Teacher email :</label></td>
 						<td><form:input path="email" /></td>
 					</tr>
-					<tr>
-						<td><label>Courses taught :</label></td>
-						<td><select id="subjects" name="subjects" multiple>
-								<!-- Loop over and print the Subjects -->
-								<c:forEach var="tempSubject" items="${teacher.subjects}">
-									<option value="${tempSubject.subjectId}">${tempSubject.subjectName}</option>
-								</c:forEach>
-						</select></td>
-					</tr>
+<!-- 					<tr> -->
+<!-- 						<td><label>Courses taught :</label></td> -->
+<!-- 						<td><select id="subjects" name="subjects" multiple> -->
+<!-- 								Loop over and print the Subjects -->
+<%-- 								<c:forEach var="tempSubject" items="${teacher.subjects}"> --%>
+<%-- 									<option value="${tempSubject.subjectId}">${tempSubject.subjectName}</option> --%>
+<%-- 								</c:forEach> --%>
+<!-- 						</select></td> -->
+<!-- 					</tr> -->
 
 					<!-- Addind the save button -->
 					<tr>

@@ -1,6 +1,5 @@
 package com.timetable.model;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,14 +22,14 @@ public class Period {
 	@Column(name="day")
 	private String day;
 	@Column(name="start_time")
-	private Calendar startTime;
+	private String startTime;
 	@Column(name="end_time")
-	private Calendar endTime;
+	private String endTime;
 	@OneToMany(mappedBy="period", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
 			CascadeType.REFRESH })
 	private List<Teacher_Subject> subjects; 
 	
-	public Period(String day, Calendar startTime, Calendar endTime) {
+	public Period(String day, String startTime, String endTime) {
 		super();
 		this.day = day;
 		this.startTime = startTime;
@@ -57,19 +56,19 @@ public class Period {
 		this.day = day;
 	}
 
-	public Calendar getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Calendar startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
-	public Calendar getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Calendar endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 

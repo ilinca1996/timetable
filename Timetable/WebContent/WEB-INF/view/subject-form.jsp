@@ -23,8 +23,14 @@
 		<a href="${pageContext.request.contextPath}/group/list">Groups</a>
 	</div>
 
-	<div id="container">
-		<h2>Save Subject</h2>
+	<div class="content">
+		<div class="column side">
+			<!-- To be defined -->
+			<h2></h2>
+		</div>
+		
+		<div class="column middle">
+			<h2>Save Subject</h2>
 
 		<form:form action="saveSubject" modelAttribute="subject" method="POST">
 
@@ -55,7 +61,12 @@
 			<a href="${pageContext.request.contextPath}/subject/list">Back to
 				the list of subjects</a>
 		</p>
-
+		</div>	
+		
+		<div class="column side">
+			<h2>User Info</h2>
+		</div>
+		
 	</div>
 
 </body>

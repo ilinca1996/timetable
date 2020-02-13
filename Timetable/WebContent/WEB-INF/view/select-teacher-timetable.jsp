@@ -26,63 +26,35 @@
 	
 	<div class="content">
 		<div class="column side">
-			<!-- To be defined -->
-			<h2></h2>
+			<h2>Today planning</h2>
 		</div>
 		
 		<div class="column middle">
 			
 			<h2>Save Student</h2>
 
-		<form:form action="saveStudent" modelAttribute="student" method="POST">
-
-			<!-- Associate the data with the id - truck the subject so that the backend knows which Subject is it about -->
-			<form:hidden path="studentId" />
-
+		<form:form action="showFormForAdd" modelAttribute="teacherSubject" method="GET">
+			
 			<table>
 				<tbody>
 					<tr>
-						<td><label>First name :</label></td>
-						<td><form:input path="firstName" /></td>
-					</tr>
-					<tr>
-						<td><label>Last name :</label></td>
-						<td><form:input path="lastName" /></td>
-					</tr>
-					<tr>
-						<td><label>Phone number :</label></td>
-						<td><form:input path="phoneNumber" /></td>
-					</tr>
-					<tr>
-						<td><label>Email :</label></td>
-						<td><form:input path="email" /></td>
-					</tr>
-					<tr>
-						<td><label>Group :</label></td>
-						<td><form:select path="group.groupId">
-								<form:option value="NONE" label="Select group" />
-								<form:options items="${groups}"/>
+						<td><label>First you must select the teacher : </label></td>
+						<td><form:select path="teacher">
+								<form:option value="NONE" label="Select teacher" />
+								<form:options items="${teachers}" itemValue="teacherId" itemLabel="lastName"/>
 						</form:select></td>
 					</tr>
-
-					<!-- Addind the save button -->
+					
+					<!-- Addind the submit button -->
 					<tr>
 						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
+						<td><input type="submit" value="Load subjects" class="btn btn-primary" /></td>
 					</tr>
-
+					
 				</tbody>
 			</table>
-
-		</form:form>
-
-		<div style=""></div>
-
-		<p>
-			<a href="${pageContext.request.contextPath}/student/list">Back to
-				the list of students</a>
-		</p>
-					
+			
+			</form:form>
 		</div>
 		
 		<div class="column side">

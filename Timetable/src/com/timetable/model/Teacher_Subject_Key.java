@@ -2,8 +2,10 @@ package com.timetable.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Adding this class as a necessity to the Teacher_Subject table which has a
@@ -15,43 +17,51 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Teacher_Subject_Key implements Serializable {
 
-	@Column(name = "teacher_id")
-	Integer teacherId;
-	@Column(name = "subject_id")
-	Integer subjectId;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "teacher_id", nullable = false, insertable = false, updatable = false)
+	private Teacher teacher;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "subject_id", nullable = false, insertable = false, updatable = false)
+	private Subject subject;
+	
+//	@Column(name = "teacher_id")
+//	Integer teacherId;
+//	@Column(name = "subject_id")
+//	Integer subjectId;
 
 	public Teacher_Subject_Key() {
 
 	}
 
-	public Teacher_Subject_Key(Integer teacherId, Integer subjectId) {
+	public Teacher_Subject_Key(Teacher teacher, Subject subject) {
 		super();
-		this.teacherId = teacherId;
-		this.subjectId = subjectId;
+		this.teacher = teacher;
+		this.subject = subject;
 	}
 
-	public Integer getTeacherId() {
-		return teacherId;
+	public Teacher getTeacher() {
+		return teacher;
 	}
 
-	public void setTeacherId(Integer teacherId) {
-		this.teacherId = teacherId;
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
 	}
 
-	public Integer getSubjectId() {
-		return subjectId;
+	public Subject getSubject() {
+		return subject;
 	}
 
-	public void setSubjectId(Integer subjectId) {
-		this.subjectId = subjectId;
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((subjectId == null) ? 0 : subjectId.hashCode());
-		result = prime * result + ((teacherId == null) ? 0 : teacherId.hashCode());
+		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+		result = prime * result + ((teacher == null) ? 0 : teacher.hashCode());
 		return result;
 	}
 
@@ -64,15 +74,15 @@ public class Teacher_Subject_Key implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Teacher_Subject_Key other = (Teacher_Subject_Key) obj;
-		if (subjectId == null) {
-			if (other.subjectId != null)
+		if (subject == null) {
+			if (other.subject != null)
 				return false;
-		} else if (!subjectId.equals(other.subjectId))
+		} else if (!subject.equals(other.subject))
 			return false;
-		if (teacherId == null) {
-			if (other.teacherId != null)
+		if (teacher == null) {
+			if (other.teacher != null)
 				return false;
-		} else if (!teacherId.equals(other.teacherId))
+		} else if (!teacher.equals(other.teacher))
 			return false;
 		return true;
 	}

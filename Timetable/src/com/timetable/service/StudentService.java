@@ -15,6 +15,6 @@ public interface StudentService {
 
 	List<Student> getStudentsByGroup(int groupId);
 
-	Student getSubject(int studentId);
+	Student getStudent(int studentId);
 
 }

@@ -25,8 +25,7 @@
 
 	<div class="content">
 		<div class="column side">
-			<!-- To be defined -->
-			<h2></h2>
+			<h2>Today planning</h2>
 		</div>
 
 		<div class="column middle">

@@ -23,7 +23,7 @@
 		<a href="${pageContext.request.contextPath}/group/list">Groups</a>
 	</div>
 	
-	<div class=""content>
+	<div class="content">
 		<div class="column side">
 			<!-- To be defined -->
 			<h2></h2>
