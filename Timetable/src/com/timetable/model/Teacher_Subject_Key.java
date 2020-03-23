@@ -24,21 +24,6 @@ public class Teacher_Subject_Key implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "subject_id", nullable = false, insertable = false, updatable = false)
 	private Subject subject;
-	
-//	@Column(name = "teacher_id")
-//	Integer teacherId;
-//	@Column(name = "subject_id")
-//	Integer subjectId;
-
-	public Teacher_Subject_Key() {
-
-	}
-
-	public Teacher_Subject_Key(Teacher teacher, Subject subject) {
-		super();
-		this.teacher = teacher;
-		this.subject = subject;
-	}
 
 	public Teacher getTeacher() {
 		return teacher;
@@ -54,6 +39,11 @@ public class Teacher_Subject_Key implements Serializable {
 
 	public void setSubject(Subject subject) {
 		this.subject = subject;
+	}
+
+	public Teacher_Subject_Key() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -86,5 +76,12 @@ public class Teacher_Subject_Key implements Serializable {
 			return false;
 		return true;
 	}
+	
+//	@Column(name = "teacher_id")
+//	Integer teacherId;
+//	@Column(name = "subject_id")
+//	Integer subjectId;
+	
+
 
 }

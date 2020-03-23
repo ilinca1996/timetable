@@ -38,6 +38,14 @@ public class Teacher_Subject {
 
 	}
 
+	public Teacher_Subject_Key getId() {
+		return id;
+	}
+
+	public void setId(Teacher_Subject_Key id) {
+		this.id = id;
+	}
+
 	public Teacher getTeacher() {
 		return teacher;
 	}
@@ -70,12 +78,13 @@ public class Teacher_Subject {
 		this.group = group;
 	}
 
-	public Teacher_Subject(Teacher teacher, Subject subject, Period period, Group group) {
+	public Teacher_Subject(Teacher_Subject_Key id, Teacher teacher, Subject subject, Period period, Group group) {
 		super();
+		this.id = id;
 		this.teacher = teacher;
 		this.subject = subject;
 		this.period = period;
 		this.group = group;
 	}
-	
+
 }

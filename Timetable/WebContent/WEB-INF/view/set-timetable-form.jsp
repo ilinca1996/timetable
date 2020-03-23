@@ -61,7 +61,7 @@
 							<td><label>Group</label></td>
 							<td><form:select path="group.groupId">
 									<form:option value="NONE" itemValue="groupId" label="Select group" />
-									<form:options items="${groups}" itemLabel="groupNumber"/>
+									<form:options items="${groups}" itemValue="groupId" itemLabel="groupNumber"/>
 								</form:select></td>
 						</tr>
 
@@ -69,11 +69,8 @@
 						<tr>
 							<td><label>Day</label></td>
 							<td><form:select path="period.day">
-									<form:option value="MONDAY">Monday</form:option>
-									<form:option value="TUESDAY">Tuesday</form:option>
-									<form:option value="WEDNESDAY">Wednesday</form:option>
-									<form:option value="THURSDAY">Thursday</form:option>
-									<form:option value="FRIDAY">Friday</form:option>
+									<form:option value="NONE" itemValue="periodId" label="Select time period" />
+									<form:options items="${periods}" itemValue="periodId" itemLabel="day" itemLabel="startTime" itemLabel="endTime"/>
 								</form:select></td>
 						</tr>
 
